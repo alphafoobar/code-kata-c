@@ -1,1 +1,1 @@
-# ocde-kata-c
+# code-kata-c
