@@ -6,6 +6,10 @@ os: linux
 
 env: COMPILER=gcc-7 CODE_COVERAGE=true CMAKE_BUILD_TYPE=Debug BUILD_DIRECTORY=cmake-build-debug
 
+cache: # see https://docs.travis-ci.com/user/caching/
+  - directories:
+      - $HOME/.cache
+
 addons:
   apt:
     sources:
