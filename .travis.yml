@@ -1,0 +1,11 @@
+language: c
+dist: xenial
+sudo: false
+compiler: gcc
+os: linux
+env: BUILD_DIRECTORY=cmake-build-debug
+script:
+  - mkdir -p ${BUILD_DIRECTORY} && cd ${BUILD_DIRECTORY} || exit 1
+  - cmake .. || exit 1
+  - cmake --build . --target code_kata || exit 1
+  - code_kata || exit 1
