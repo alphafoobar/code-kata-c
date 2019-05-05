@@ -17,5 +17,5 @@ int chop(int key, int *array, int offset, int length) {
     if (array[point] > key) {
         return chop(key, array, offset, point);
     }
-    return chop(key, array, point, length);
+    return chop(key, array, point + 1, length);
 }
