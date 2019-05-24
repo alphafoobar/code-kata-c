@@ -1,0 +1,6 @@
+[submodule "tests/cmocka-1.1.5"]
+	path = tests/cmocka-1.1.5
+	url = https://gitlab.com/cmocka/cmocka.git
+[submodule "build-dependencies/cmocka-1.1.5"]
+	path = build-dependencies/cmocka-1.1.5
+	url = https://gitlab.com/cmocka/cmocka.git

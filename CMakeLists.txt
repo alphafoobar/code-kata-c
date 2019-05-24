@@ -1,9 +1,15 @@
 cmake_minimum_required(VERSION 3.12)
 project(c)
-
 set(CMAKE_C_STANDARD 11)
 
-add_executable(code_kata src/kata02/kata02-binary-search.c tests/kata02/kata02-binary-search_test.c tests/now.c tests/log.c tests/kata-test.h tests/kata-test.c)
-target_link_libraries(code_kata m)
+add_subdirectory(src)
 
-include_directories(src)
+list(APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/build-dependencies/cmocka-1.1.5/cmake/Modules")
+
+option(ENABLE_TESTS "Perform unit tests after build" ON)
+include(AddCMockaTest)
+enable_testing()
+
+#set(CMAKE_C_FLAGS "-Wall -Werror -Wpedantic -std=c11")
+
+add_subdirectory(tests)

@@ -1,15 +1,21 @@
-int chop(int key, const int *array, int offset, int length) {
-    while (offset < length) {
-        const int remaining = length - offset;
-        int point = offset + remaining / 2;
-        if (array[point] == key) {
+#include "kata02-binary-search.h"
+
+int chop(const int key, const int *array, int low, int high) {
+    while (low < high) {
+        const int remaining = high - low;
+        const int point = low + remaining / 2;
+        const int value = array[point];
+
+        if (value == key) {
             return point;
         }
-        if (array[point] > key) {
-            length = point;
+
+        if (value > key) {
+            high = point;
         } else {
-            offset = point + 1;
+            low = point + 1;
         }
     }
     return -1;
 }
+

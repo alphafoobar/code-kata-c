@@ -25,6 +25,10 @@ before_install:
   - sudo gem install coveralls-lcov
   - export CC="${COMPILER}"
 
+install:
+  - chmod +x ./pre-install.sh
+  - ./pre-install.sh
+
 before_script:
   - ${CC} --version
   - cmake --version

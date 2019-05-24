@@ -4,11 +4,10 @@
 
 ## How-to
 
-This project is currently rolling it's own unit testing; though it's not really production ready - the tests are being
-built into the executable and the main method is actually for a test class.
-
-It would be preferred to add a framework for unit testing, perhaps CMocka:
+This project is now using CMocka:
 
 * https://blog.microjoe.org/2017/unit-tests-c-cmocka-coverage-cmake.html
 * https://cmocka.org/
+* https://lonewolfer.wordpress.com/2014/10/13/test-driven-c-cmake-cmocka-complete-code-coverage/
+* https://re-ws.pl/2018/10/using-cmocka-for-unit-testing-c-code/
 
