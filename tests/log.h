@@ -1,1 +1,0 @@
-void print_test_log(TestInfo test_info, const char *message);

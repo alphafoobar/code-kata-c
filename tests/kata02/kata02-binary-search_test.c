@@ -11,7 +11,6 @@
 #include <time.h> // for string format time.
 #include "kata02/kata02-binary-search.h"
 #include "../now.h"
-#include "../log.h"
 
 #include <cmocka.h>
 

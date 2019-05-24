@@ -3,8 +3,6 @@ include_directories("${PROJECT_SOURCE_DIR}/src")
 
 add_cmocka_test(test_kata02_binary_search
         SOURCES
-        ${CMAKE_SOURCE_DIR}/tests/kata-test.c
-        ${CMAKE_SOURCE_DIR}/tests/log.c
         ${CMAKE_SOURCE_DIR}/tests/now.c
         ${CMAKE_SOURCE_DIR}/tests/kata02/kata02-binary-search_test.c
         ${CMAKE_SOURCE_DIR}/src/kata02/kata02-binary-search.c)
