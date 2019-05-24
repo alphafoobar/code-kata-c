@@ -38,5 +38,5 @@ before_script:
 script:
   - mkdir -p ${BUILD_DIRECTORY} && cd ${BUILD_DIRECTORY} || exit 1
   - cmake .. || exit 1
-  - cmake --build . --target code_kata || exit 1
-  - ./code_kata || exit 1
+  - make || exit 1
+  - ctest -V || exit 1

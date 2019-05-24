@@ -18,4 +18,3 @@ int chop(const int key, const int *array, int low, int high) {
     }
     return -1;
 }
-
