@@ -10,7 +10,6 @@
 #include <stdio.h> // for printf & sprintf.
 #include <time.h> // for string format time.
 #include "kata02/kata02-binary-search.h"
-#include "../kata-test.h"
 #include "../now.h"
 #include "../log.h"
 
