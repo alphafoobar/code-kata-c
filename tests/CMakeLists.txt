@@ -17,3 +17,5 @@ endif ()
 include_directories(${PROJECT_SOURCE_DIR}/build-dependencies/install/cmocka-1.1.5/include)
 
 target_link_libraries(test_kata02_binary_search cmocka_lib m)
+
+file(COPY resources DESTINATION .)
