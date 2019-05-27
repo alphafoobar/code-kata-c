@@ -7,6 +7,13 @@ add_cmocka_test(test_kata02_binary_search
         ${CMAKE_SOURCE_DIR}/tests/kata02/kata02-binary-search_test.c
         ${CMAKE_SOURCE_DIR}/src/kata02/kata02-binary-search.c)
 
+add_cmocka_test(test_read_file
+        SOURCES
+        ${CMAKE_SOURCE_DIR}/tests/now.c
+        ${CMAKE_SOURCE_DIR}/tests/file/read_file_test.c
+        ${CMAKE_SOURCE_DIR}/src/file/read_file.c
+        LINK_LIBRARIES cmocka_lib)
+
 add_library(cmocka_lib SHARED IMPORTED)
 if (APPLE)
     set_target_properties(cmocka_lib PROPERTIES IMPORTED_LOCATION ${PROJECT_SOURCE_DIR}/build-dependencies/install/cmocka-1.1.5/lib/libcmocka.dylib)
