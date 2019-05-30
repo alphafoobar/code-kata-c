@@ -14,6 +14,18 @@ add_cmocka_test(test_read_file
         ${CMAKE_SOURCE_DIR}/src/file/read_file.c
         LINK_LIBRARIES cmocka_lib)
 
+add_cmocka_test(test_tokenizer
+        SOURCES
+        strings/tokenizer_test.c
+        ../src/string/tokenizer.c
+        LINK_LIBRARIES cmocka_lib)
+
+add_cmocka_test(test_strings
+        SOURCES
+        strings/strings_test.c
+        ../src/string/strings.c
+        LINK_LIBRARIES cmocka_lib)
+
 add_library(cmocka_lib SHARED IMPORTED)
 if (APPLE)
     set_target_properties(cmocka_lib PROPERTIES IMPORTED_LOCATION ${PROJECT_SOURCE_DIR}/build-dependencies/install/cmocka-1.1.5/lib/libcmocka.dylib)
