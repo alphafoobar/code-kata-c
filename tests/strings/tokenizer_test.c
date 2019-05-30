@@ -15,15 +15,23 @@ static void test_tokenize_string() {
     assert_string_equal("Arsenal", tokens[1]);
     assert_string_equal("87", tokens[9]);
 
-    for (int i = 0; i < number_of_tokens; i++) {
-        free(tokens[i]);
-    }
-    free(tokens);
+    free_array_of_strings(tokens, number_of_tokens);
+}
+
+static void test_tokenize_dashes() {
+    size_t number_of_tokens = -1;
+    char **tokens = tokenize_string("----------------------------", " ",
+                                    &number_of_tokens);
+    assert_int_equal(1, number_of_tokens);
+    assert_string_equal("----------------------------", tokens[0]);
+
+    free_array_of_strings(tokens, number_of_tokens);
 }
 
 int main(int argc, char *argv[]) {
     const struct CMUnitTest tests[] = {
             cmocka_unit_test(test_tokenize_string),
+            cmocka_unit_test(test_tokenize_dashes),
     };
     return cmocka_run_group_tests(tests, NULL, NULL);
 }
