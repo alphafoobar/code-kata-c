@@ -16,14 +16,22 @@ add_cmocka_test(test_read_file
 
 add_cmocka_test(test_tokenizer
         SOURCES
-        strings/tokenizer_test.c
-        ../src/string/tokenizer.c
+        ${CMAKE_SOURCE_DIR}/tests/strings/tokenizer_test.c
+        ${CMAKE_SOURCE_DIR}/src/string/tokenizer.c
         LINK_LIBRARIES cmocka_lib)
 
 add_cmocka_test(test_strings
         SOURCES
-        strings/strings_test.c
-        ../src/string/strings.c
+        ${CMAKE_SOURCE_DIR}/tests/strings/strings_test.c
+        ${CMAKE_SOURCE_DIR}/src/string/strings.c
+        LINK_LIBRARIES cmocka_lib)
+
+add_cmocka_test(test_kata04_data_munger
+        SOURCES
+        ${PROJECT_SOURCE_DIR}/tests/kata04/football_data_test.c
+        ${PROJECT_SOURCE_DIR}/src/kata04/football_data.c
+        ${PROJECT_SOURCE_DIR}/src/string/tokenizer.c
+        ${PROJECT_SOURCE_DIR}/src/string/strings.c
         LINK_LIBRARIES cmocka_lib)
 
 add_library(cmocka_lib SHARED IMPORTED)
