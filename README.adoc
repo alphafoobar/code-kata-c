@@ -1,0 +1,24 @@
+https://travis-ci.com/alphafoobar/code-kata-c[image:https://travis-ci.com/alphafoobar/code-kata-c.svg?branch=master[Build status]]
+
+== CodeKata - in the C programming language
+
+* Built using JetBrains CLion
+* Target C version is C11
+* Build using Makefile, cmake, make and ctest
+* Tests implemented using https://cmocka.org/[CMocka]
+
+== How-to
+
+1. `mkdir build`
+2. `cd build`
+3. `cmake ..`
+4. `ctest -V`
+
+Or simply run the tests required in CLion by clicking on the green arror in the test file of interest.
+
+=== Links regarding CMocka
+
+* https://blog.microjoe.org/2017/unit-tests-c-cmocka-coverage-cmake.html
+* https://lonewolfer.wordpress.com/2014/10/13/test-driven-c-cmake-cmocka-complete-code-coverage/
+* https://re-ws.pl/2018/10/using-cmocka-for-unit-testing-c-code/
+
