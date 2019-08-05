@@ -14,7 +14,7 @@
 
 #include <cmocka.h>
 
-int empty_array[] = {};
+int empty_array[] = {0};
 int array_of_one[] = {1};
 
 static void test_empty_array() {

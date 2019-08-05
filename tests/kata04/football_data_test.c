@@ -1,5 +1,6 @@
 #include <stdarg.h>
 #include <stddef.h>
+// setjmp required
 #include <setjmp.h>
 
 #include "kata04/football_data.h"
