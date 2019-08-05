@@ -10,6 +10,6 @@ option(ENABLE_TESTS "Perform unit tests after build" ON)
 include(AddCMockaTest)
 enable_testing()
 
-#set(CMAKE_C_FLAGS "-Wall -Werror -Wpedantic -std=c11")
+set(CMAKE_C_FLAGS "-Wall -Werror -Wpedantic -std=c11")
 
 add_subdirectory(tests)
