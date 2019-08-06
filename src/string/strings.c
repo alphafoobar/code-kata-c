@@ -7,7 +7,7 @@
 
 char *modify_string(char *s, size_t new_length);
 
-const size_t new_string_length(const char *s, size_t length);
+size_t new_string_length(const char *s, size_t length);
 
 bool is_number(char *s) {
     const size_t length = strlen(s);
@@ -29,7 +29,7 @@ char *strip_trailing_asterisk(const char *s) {
     return modify_string(duplicate, new_length);
 }
 
-const size_t new_string_length(const char *s, const size_t length) {
+size_t new_string_length(const char *s, const size_t length) {
     const size_t new_length = length - 1;
     if (new_length > 0 && s[new_length] == '*') {
         return new_length;

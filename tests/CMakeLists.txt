@@ -26,10 +26,18 @@ add_cmocka_test(test_strings
         ${CMAKE_SOURCE_DIR}/src/string/strings.c
         LINK_LIBRARIES cmocka_lib)
 
-add_cmocka_test(test_kata04_data_munger
+add_cmocka_test(test_kata04_data_munger_football
         SOURCES
         ${PROJECT_SOURCE_DIR}/tests/kata04/football_data_test.c
         ${PROJECT_SOURCE_DIR}/src/kata04/football_data.c
+        ${PROJECT_SOURCE_DIR}/src/string/tokenizer.c
+        ${PROJECT_SOURCE_DIR}/src/string/strings.c
+        LINK_LIBRARIES cmocka_lib)
+
+add_cmocka_test(test_kata04_data_munger_weather
+        SOURCES
+        ${PROJECT_SOURCE_DIR}/tests/kata04/weather_data_test.c
+        ${PROJECT_SOURCE_DIR}/src/kata04/weather_data.c
         ${PROJECT_SOURCE_DIR}/src/string/tokenizer.c
         ${PROJECT_SOURCE_DIR}/src/string/strings.c
         LINK_LIBRARIES cmocka_lib)
