@@ -7,6 +7,7 @@ add_executable(code_kata
         kata04/football_data.c
         kata04/weather_data.c
         kata04/football_munger.c
+        kata04/weather_munger.c
         main.c)
 
 target_link_libraries(code_kata m)

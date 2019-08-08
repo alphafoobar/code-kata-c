@@ -2,7 +2,6 @@
 #define KATA04_FOOTBALL_MUNGER_H
 
 #include "football_data.h"
-#include "../file/read_file.h" // #to_data(string filename)
 
 typedef struct football_munger {
     FootballData **data;
