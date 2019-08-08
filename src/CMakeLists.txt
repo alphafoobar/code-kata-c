@@ -6,6 +6,7 @@ add_executable(code_kata
         kata02/kata02-binary-search.c
         kata04/football_data.c
         kata04/weather_data.c
+        kata04/football_munger.c
         main.c)
 
 target_link_libraries(code_kata m)

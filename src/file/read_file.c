@@ -8,8 +8,6 @@ StringsList *new_strings_list();
 
 void resize_list(StringsList *stringsList, int new_max_size);
 
-char *get_line(FILE *file, char *line);
-
 void read_file(FILE *file, StringsList *list);
 
 StringsList *to_data(const char *filename) {
@@ -26,26 +24,24 @@ StringsList *to_data(const char *filename) {
 }
 
 void read_file(FILE *file, StringsList *list) {
-    for (int i = 0; get_line(file, list->lines[i]); i++) {
-        if (i >= list->max_lines) {
+    for (int i = 0; fgets(list->lines[i], MAX_LEN, file); i++) {
+        list->lines_count++;
+        if (i >= list->max_lines - 1) {
             resize_list(list, list->max_lines * 2);
         }
-        list->lines_count++;
     }
-}
-
-char *get_line(FILE *file, char *line) {
-    line = (char *) malloc(MAX_LEN * sizeof(char));
-    return fgets(line, MAX_LEN, file);
 }
 
 void resize_list(StringsList *stringsList, int new_max_size) {
     stringsList->max_lines = new_max_size;
-    stringsList->lines = (char **) realloc(stringsList->lines, new_max_size * sizeof *stringsList->lines);
+    stringsList->lines = (char **) realloc(stringsList->lines, new_max_size * sizeof stringsList->lines);
+    for (int i = stringsList->lines_count; i < new_max_size; i++) {
+        stringsList->lines[i] = (char *) malloc(MAX_LEN * sizeof(char));
+    }
 }
 
 StringsList *new_strings_list() {
-    StringsList *list = malloc(sizeof(StringsList));
+    StringsList *list = (StringsList *) malloc(sizeof(StringsList));
     list->lines = NULL;
     list->lines_count = 0;
     list->max_lines = 10;
@@ -55,6 +51,9 @@ StringsList *new_strings_list() {
 
 void free_strings_list(StringsList *list) {
     if (list != NULL) {
+        for (int i = 0; i < list->lines_count; i++) {
+            free(list->lines[i]);
+        }
         free(list->lines);
         free(list);
     }
