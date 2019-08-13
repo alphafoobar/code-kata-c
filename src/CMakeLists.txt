@@ -8,6 +8,6 @@ add_executable(code_kata
         kata04/weather_data.c
         kata04/football_munger.c
         kata04/weather_munger.c
-        main.c)
+        main.c kata05/bloom_filter.c kata05/bloom_filter.h)
 
 target_link_libraries(code_kata m)

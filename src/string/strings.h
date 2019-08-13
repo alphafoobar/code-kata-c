@@ -1,7 +1,12 @@
 #ifndef CODE_KATA_C_STRINGS_H
 #define CODE_KATA_C_STRINGS_H
 
+#include <stdlib.h>
 #include <stdbool.h>
+
+char *to_lower(char *s);
+
+size_t latin1_hash_code(char *s);
 
 bool is_number(char *s);
 

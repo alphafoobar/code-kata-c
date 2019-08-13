@@ -62,6 +62,16 @@ add_cmocka_test(test_kata04_data_munger_weather
         ${PROJECT_SOURCE_DIR}/src/file/read_file.c
         LINK_LIBRARIES cmocka_lib)
 
+
+add_cmocka_test(test_kata05_bloom_filter
+        SOURCES
+        ${PROJECT_SOURCE_DIR}/tests/kata05/bloom_filter_test.c
+        ${PROJECT_SOURCE_DIR}/src/kata05/bloom_filter.c
+        ${PROJECT_SOURCE_DIR}/src/string/tokenizer.c
+        ${PROJECT_SOURCE_DIR}/src/string/strings.c
+        ${PROJECT_SOURCE_DIR}/src/file/read_file.c
+        LINK_LIBRARIES cmocka_lib)
+
 add_library(cmocka_lib SHARED IMPORTED)
 if (APPLE)
     set_target_properties(cmocka_lib PROPERTIES IMPORTED_LOCATION ${PROJECT_SOURCE_DIR}/build-dependencies/install/cmocka-1.1.5/lib/libcmocka.dylib)
