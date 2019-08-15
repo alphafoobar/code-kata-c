@@ -62,11 +62,19 @@ add_cmocka_test(test_kata04_data_munger_weather
         ${PROJECT_SOURCE_DIR}/src/file/read_file.c
         LINK_LIBRARIES cmocka_lib)
 
-
 add_cmocka_test(test_kata05_bloom_filter
         SOURCES
         ${PROJECT_SOURCE_DIR}/tests/kata05/bloom_filter_test.c
         ${PROJECT_SOURCE_DIR}/src/kata05/bloom_filter.c
+        ${PROJECT_SOURCE_DIR}/src/string/tokenizer.c
+        ${PROJECT_SOURCE_DIR}/src/string/strings.c
+        ${PROJECT_SOURCE_DIR}/src/file/read_file.c
+        LINK_LIBRARIES cmocka_lib)
+
+add_cmocka_test(test_kata06_anagram
+        SOURCES
+        ${PROJECT_SOURCE_DIR}/tests/kata06/anagram_test.c
+        ${PROJECT_SOURCE_DIR}/src/kata06/anagram.c
         ${PROJECT_SOURCE_DIR}/src/string/tokenizer.c
         ${PROJECT_SOURCE_DIR}/src/string/strings.c
         ${PROJECT_SOURCE_DIR}/src/file/read_file.c
