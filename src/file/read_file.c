@@ -4,9 +4,7 @@
 
 #define  MAX_LEN  128
 
-StringsList *new_strings_list();
-
-void resize_list(StringsList *stringsList, int new_max_size);
+void resize_list(StringsList *list, int new_max_size);
 
 void read_file(FILE *file, StringsList *list);
 
@@ -25,18 +23,24 @@ StringsList *to_data(const char *filename) {
 
 void read_file(FILE *file, StringsList *list) {
     for (int i = 0; fgets(list->lines[i], MAX_LEN, file); i++) {
-        list->lines_count++;
-        if (i >= list->max_lines - 1) {
+        if (++list->lines_count >= list->max_lines) {
             resize_list(list, list->max_lines * 2);
         }
     }
 }
 
-void resize_list(StringsList *stringsList, int new_max_size) {
-    stringsList->max_lines = new_max_size;
-    stringsList->lines = (char **) realloc(stringsList->lines, new_max_size * sizeof stringsList->lines);
-    for (int i = stringsList->lines_count; i < new_max_size; i++) {
-        stringsList->lines[i] = (char *) malloc(MAX_LEN * sizeof(char));
+void plus_string(StringsList *list, char *string) {
+    list->lines[list->lines_count] = string;
+    if (++list->lines_count >= list->max_lines) {
+        resize_list(list, list->max_lines * 2);
+    }
+}
+
+void resize_list(StringsList *list, int new_max_size) {
+    list->max_lines = new_max_size;
+    list->lines = (char **) realloc(list->lines, new_max_size * sizeof list->lines);
+    for (int i = list->lines_count; i < new_max_size; i++) {
+        list->lines[i] = (char *) malloc(MAX_LEN * sizeof(char));
     }
 }
 

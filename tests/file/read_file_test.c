@@ -1,6 +1,7 @@
 #include <stdarg.h>
 #include <stddef.h>
 #include <setjmp.h>
+#include <string.h>
 
 #include "../now.h"
 #include "file/read_file.h"
@@ -9,6 +10,14 @@
 
 static void test_unknown_file() {
     StringsList *const data = to_data("unknown file");
+    assert_null(data);
+    free_strings_list(data);
+}
+
+static void test_plus_string() {
+    StringsList *const data = new_strings_list();
+
+    plus_string(data, strdup("test"));
     assert_null(data);
     free_strings_list(data);
 }
@@ -40,6 +49,7 @@ int main(int argc, char *argv[]) {
     const struct CMUnitTest tests[] = {
             cmocka_unit_test(test_unknown_file),
             cmocka_unit_test(test_weather_file),
+            cmocka_unit_test(test_plus_string),
             cmocka_unit_test(test_read_first_lines),
             cmocka_unit_test(test_football_file),
     };

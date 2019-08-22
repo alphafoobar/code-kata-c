@@ -9,6 +9,10 @@ typedef struct strings_list {
 
 StringsList *to_data(const char *filename);
 
+StringsList *new_strings_list();
+
+void plus_string(StringsList *list, char *string);
+
 void free_strings_list(StringsList *list);
 
 #endif //KATA_READ_FILE_H
