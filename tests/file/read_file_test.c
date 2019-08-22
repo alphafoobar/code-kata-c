@@ -18,7 +18,7 @@ static void test_plus_string() {
     StringsList *const data = new_strings_list();
 
     plus_string(data, strdup("test"));
-    assert_null(data);
+    assert_int_equal(data->lines_count, 1);
     free_strings_list(data);
 }
 
