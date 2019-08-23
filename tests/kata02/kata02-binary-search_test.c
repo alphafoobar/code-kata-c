@@ -55,7 +55,7 @@ static void test_array_of_length_4() {
     assert_int_equal(-1, chop(8, array, 0, 4));
 }
 
-int main(int argc, char *argv[]) {
+int main() {
     // Calculate the time taken by fun()
     clock_t t_0 = clock();
     char result[26];

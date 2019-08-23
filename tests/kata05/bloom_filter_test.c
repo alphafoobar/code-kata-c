@@ -40,7 +40,7 @@ static void test_tricky_word() {
     assert_false(it.test(&it, "beefburger's'"));
 }
 
-int main(int argc, char *argv[]) {
+int main() {
     const struct CMUnitTest tests[] = {
             cmocka_unit_test(test_initialize),
             cmocka_unit_test(test_dictionary),

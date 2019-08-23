@@ -5,26 +5,31 @@ add_cmocka_test(test_kata02_binary_search
         SOURCES
         ${PROJECT_SOURCE_DIR}/tests/now.c
         ${PROJECT_SOURCE_DIR}/tests/kata02/kata02-binary-search_test.c
-        ${PROJECT_SOURCE_DIR}/src/kata02/kata02-binary-search.c)
+        ${PROJECT_SOURCE_DIR}/src/kata02/kata02-binary-search.c
+        LINK_LIBRARIES cmocka_lib
+        LINK_OPTIONS --coverage)
 
 add_cmocka_test(test_read_file
         SOURCES
         ${PROJECT_SOURCE_DIR}/tests/now.c
         ${PROJECT_SOURCE_DIR}/tests/file/read_file_test.c
         ${PROJECT_SOURCE_DIR}/src/file/read_file.c
-        LINK_LIBRARIES cmocka_lib)
+        LINK_LIBRARIES cmocka_lib
+        LINK_OPTIONS --coverage)
 
 add_cmocka_test(test_tokenizer
         SOURCES
         ${PROJECT_SOURCE_DIR}/tests/strings/tokenizer_test.c
         ${PROJECT_SOURCE_DIR}/src/string/tokenizer.c
-        LINK_LIBRARIES cmocka_lib)
+        LINK_LIBRARIES cmocka_lib
+        LINK_OPTIONS --coverage)
 
 add_cmocka_test(test_strings
         SOURCES
         ${PROJECT_SOURCE_DIR}/tests/strings/strings_test.c
         ${PROJECT_SOURCE_DIR}/src/string/strings.c
-        LINK_LIBRARIES cmocka_lib)
+        LINK_LIBRARIES cmocka_lib m
+        LINK_OPTIONS --coverage)
 
 add_cmocka_test(test_kata04_data_football
         SOURCES
@@ -32,7 +37,8 @@ add_cmocka_test(test_kata04_data_football
         ${PROJECT_SOURCE_DIR}/src/kata04/football_data.c
         ${PROJECT_SOURCE_DIR}/src/string/tokenizer.c
         ${PROJECT_SOURCE_DIR}/src/string/strings.c
-        LINK_LIBRARIES cmocka_lib)
+        LINK_LIBRARIES cmocka_lib
+        LINK_OPTIONS --coverage)
 
 add_cmocka_test(test_kata04_data_weather
         SOURCES
@@ -40,7 +46,8 @@ add_cmocka_test(test_kata04_data_weather
         ${PROJECT_SOURCE_DIR}/src/kata04/weather_data.c
         ${PROJECT_SOURCE_DIR}/src/string/tokenizer.c
         ${PROJECT_SOURCE_DIR}/src/string/strings.c
-        LINK_LIBRARIES cmocka_lib)
+        LINK_LIBRARIES cmocka_lib
+        LINK_OPTIONS --coverage)
 
 add_cmocka_test(test_kata04_data_munger_football
         SOURCES
@@ -50,7 +57,8 @@ add_cmocka_test(test_kata04_data_munger_football
         ${PROJECT_SOURCE_DIR}/src/string/tokenizer.c
         ${PROJECT_SOURCE_DIR}/src/string/strings.c
         ${PROJECT_SOURCE_DIR}/src/file/read_file.c
-        LINK_LIBRARIES cmocka_lib)
+        LINK_LIBRARIES cmocka_lib
+        LINK_OPTIONS --coverage)
 
 add_cmocka_test(test_kata04_data_munger_weather
         SOURCES
@@ -60,7 +68,8 @@ add_cmocka_test(test_kata04_data_munger_weather
         ${PROJECT_SOURCE_DIR}/src/string/tokenizer.c
         ${PROJECT_SOURCE_DIR}/src/string/strings.c
         ${PROJECT_SOURCE_DIR}/src/file/read_file.c
-        LINK_LIBRARIES cmocka_lib)
+        LINK_LIBRARIES cmocka_lib
+        LINK_OPTIONS --coverage)
 
 add_cmocka_test(test_kata05_bloom_filter
         SOURCES
@@ -69,7 +78,8 @@ add_cmocka_test(test_kata05_bloom_filter
         ${PROJECT_SOURCE_DIR}/src/string/tokenizer.c
         ${PROJECT_SOURCE_DIR}/src/string/strings.c
         ${PROJECT_SOURCE_DIR}/src/file/read_file.c
-        LINK_LIBRARIES cmocka_lib)
+        LINK_LIBRARIES cmocka_lib
+        LINK_OPTIONS --coverage)
 
 add_cmocka_test(test_kata06_anagram
         SOURCES
@@ -78,7 +88,8 @@ add_cmocka_test(test_kata06_anagram
         ${PROJECT_SOURCE_DIR}/src/string/tokenizer.c
         ${PROJECT_SOURCE_DIR}/src/string/strings.c
         ${PROJECT_SOURCE_DIR}/src/file/read_file.c
-        LINK_LIBRARIES cmocka_lib)
+        LINK_LIBRARIES cmocka_lib
+        LINK_OPTIONS --coverage)
 
 add_library(cmocka_lib SHARED IMPORTED)
 if (APPLE)
@@ -88,7 +99,5 @@ else ()
 endif ()
 
 include_directories(${PROJECT_SOURCE_DIR}/build-dependencies/install/cmocka-1.1.5/include)
-
-target_link_libraries(test_kata02_binary_search cmocka_lib m)
 
 file(COPY resources DESTINATION .)

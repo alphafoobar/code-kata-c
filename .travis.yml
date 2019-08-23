@@ -37,6 +37,14 @@ before_script:
 
 script:
   - mkdir -p ${BUILD_DIRECTORY} && cd ${BUILD_DIRECTORY} || exit 1
-  - cmake .. || exit 1
+  - cmake -D ENABLE_COVERAGE:BOOL=TRUE .. || exit 1
   - make || exit 1
   - ctest -V || exit 1
+
+after_success:
+  # Create lcov report (assumes are we still in the build directory) ${TRAVIS_BUILD_DIR}/${BUILD_DIRECTORY}
+  - lcov --capture --directory . --output-file coverage.info --gcov-tool gcov-7
+  - lcov --remove coverage.info '/usr/*' 'test/*' --output-file coverage.info
+  - lcov --list coverage.info
+  # Uploading report to CodeCov
+  - bash <(curl -s https://codecov.io/bash) -f coverage.info || echo "Codecov did not collect coverage reports"

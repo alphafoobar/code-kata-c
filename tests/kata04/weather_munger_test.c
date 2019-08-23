@@ -25,7 +25,7 @@ static void test_munger_day() {
     free_weather_munger(munger);
 }
 
-int main(int argc, char *argv[]) {
+int main() {
     const struct CMUnitTest tests[] = {
             cmocka_unit_test(test_read_smallest_difference_temperature),
             cmocka_unit_test(test_munger_day),

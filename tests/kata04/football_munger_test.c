@@ -25,7 +25,7 @@ static void test_munger_name() {
     free_football_munger(munger);
 }
 
-int main(int argc, char *argv[]) {
+int main() {
     const struct CMUnitTest tests[] = {
             cmocka_unit_test(test_read_team_name),
             cmocka_unit_test(test_munger_name),

@@ -37,7 +37,7 @@ static void test_an_int_with_an_asterix_is_87() {
     assert_int_equal(87, result);
 }
 
-int main(int argc, char *argv[]) {
+int main() {
     const struct CMUnitTest tests[] = {
             cmocka_unit_test(test_an_int_is_87),
             cmocka_unit_test(test_a_not_int_is_0),

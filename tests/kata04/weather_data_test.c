@@ -40,7 +40,7 @@ static void test_skips_data() {
     free_weather_data(data);
 }
 
-int main(int argc, char *argv[]) {
+int main() {
     const struct CMUnitTest tests[] = {
             cmocka_unit_test(test_handles_asterix),
             cmocka_unit_test(test_handles_normal_data),

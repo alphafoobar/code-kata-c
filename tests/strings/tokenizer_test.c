@@ -37,7 +37,7 @@ static void test_tokenize_dashes() {
     free_array_of_strings(tokens, number_of_tokens);
 }
 
-int main(int argc, char *argv[]) {
+int main() {
     const struct CMUnitTest tests[] = {
             cmocka_unit_test(test_empty_string),
             cmocka_unit_test(test_tokenize_string),

@@ -45,7 +45,7 @@ static void test_football_file() {
     free_strings_list(data);
 }
 
-int main(int argc, char *argv[]) {
+int main() {
     const struct CMUnitTest tests[] = {
             cmocka_unit_test(test_unknown_file),
             cmocka_unit_test(test_weather_file),

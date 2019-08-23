@@ -31,7 +31,7 @@ static void test_read_skip_empty_row() {
     free_football_data(data);
 }
 
-int main(int argc, char *argv[]) {
+int main() {
     const struct CMUnitTest tests[] = {
             cmocka_unit_test(test_read_team_name),
             cmocka_unit_test(test_read_normal_data),

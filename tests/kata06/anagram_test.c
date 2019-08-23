@@ -15,7 +15,7 @@ static void test_anagrams() {
     free_strings_list(actual);
 }
 
-int main(int argc, char *argv[]) {
+int main() {
     const struct CMUnitTest tests[] = {
             cmocka_unit_test(test_anagrams),
     };
