@@ -34,12 +34,14 @@ before_script:
   - cmake --version
   - lcov --version
   - gcov --version
+  - valgrind --version
 
 script:
   - mkdir -p ${BUILD_DIRECTORY} && cd ${BUILD_DIRECTORY} || exit 1
   - cmake -D ENABLE_COVERAGE:BOOL=TRUE .. || exit 1
   - make || exit 1
   - ctest -V || exit 1
+  - ctest -T memcheck || exit 1
 
 after_success:
   # Create lcov report (assumes are we still in the build directory) ${TRAVIS_BUILD_DIR}/${BUILD_DIRECTORY}
