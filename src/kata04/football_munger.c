@@ -11,7 +11,7 @@ FootballMunger *read_football_file(const char *filename) {
     FootballData **data = (FootballData **) malloc(file_data->lines_count * sizeof(FootballData *));
     munger->data = data;
 
-    for (int i = 0; i < file_data->lines_count; i++) {
+    for (size_t i = 0; i < file_data->lines_count; i++) {
         FootballData *football_data = new_football_data_from_string(file_data->lines[i]);
         if (football_data != NULL) {
             data[count++] = football_data;
@@ -24,7 +24,7 @@ FootballMunger *read_football_file(const char *filename) {
 
 FootballData *smallest_difference_score(FootballMunger *munger) {
     FootballData *smallest_data = NULL;
-    for (int i = 0; i < munger->count; i++) {
+    for (size_t i = 0; i < munger->count; i++) {
         FootballData *data = munger->data[i];
         if (smallest_data == NULL || points_difference(data) < points_difference(smallest_data)) {
             smallest_data = data;

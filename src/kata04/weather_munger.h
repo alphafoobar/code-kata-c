@@ -5,7 +5,7 @@
 
 typedef struct weather_munger {
     WeatherData **data;
-    int count;
+    size_t count;
 } WeatherMunger;
 
 WeatherMunger *read_weather_file(const char *filename);

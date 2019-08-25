@@ -22,12 +22,15 @@ WeatherData *new_weather_data_from_string(char *data) {
     size_t number_of_tokens = 0;
     char **tokens = tokenize_string(data, " ", &number_of_tokens);
     if (number_of_tokens < 4) {
+        free_array_of_strings(tokens, number_of_tokens);
         return NULL;
     }
 
     int day = an_int(tokens[0]);
     int max = an_int(tokens[1]);
     int min = an_int(tokens[2]);
+
+    free_array_of_strings(tokens, number_of_tokens);
 
     // Day starts at 1. Anything less is invalid data.
     if (day < 1) {

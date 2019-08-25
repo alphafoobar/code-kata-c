@@ -7,7 +7,9 @@
 #include "../file/read_file.h" // #to_data(string filename)
 
 size_t algo_one(char *word) {
+    char *const lower = to_lower(word);
     const size_t hash = latin1_hash_code(to_lower(word)) & ULONG_MAX;
+    free(lower);
     return hash % BLOOM_FILTER_SIZE;
 }
 
@@ -31,7 +33,7 @@ BloomFilter bloom_filter_init_from_file(char *filename) {
 
     StringsList *file_data = to_data(filename);
     if (file_data) {
-        for (int i = 0; i < file_data->lines_count; i++) {
+        for (size_t i = 0; i < file_data->lines_count; i++) {
             it.add_word(&it, file_data->lines[i]);
         }
     }

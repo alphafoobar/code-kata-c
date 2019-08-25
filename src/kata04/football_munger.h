@@ -5,7 +5,7 @@
 
 typedef struct football_munger {
     FootballData **data;
-    int count;
+    size_t count;
 } FootballMunger;
 
 FootballMunger *read_football_file(const char *filename);

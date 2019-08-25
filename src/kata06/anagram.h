@@ -5,4 +5,6 @@
 
 StringsList *anagrams(char *input);
 
+void load_anagrams(const char *filename);
+
 #endif //C_ANAGRAM_H

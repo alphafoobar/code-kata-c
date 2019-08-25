@@ -11,7 +11,7 @@ WeatherMunger *read_weather_file(const char *filename) {
     WeatherData **data = (WeatherData **) malloc(file_data->lines_count * sizeof(WeatherData *));
     munger->data = data;
 
-    for (int i = 0; i < file_data->lines_count; i++) {
+    for (size_t i = 0; i < file_data->lines_count; i++) {
         WeatherData *weather_data = new_weather_data_from_string(file_data->lines[i]);
         if (weather_data != NULL) {
             data[count++] = weather_data;
@@ -24,7 +24,7 @@ WeatherMunger *read_weather_file(const char *filename) {
 
 WeatherData *smallest_difference_temperature(WeatherMunger *munger) {
     WeatherData *smallest_data = NULL;
-    for (int i = 0; i < munger->count; i++) {
+    for (size_t i = 0; i < munger->count; i++) {
         WeatherData *data = munger->data[i];
         if (smallest_data == NULL || temperature_difference(data) < temperature_difference(smallest_data)) {
             smallest_data = data;

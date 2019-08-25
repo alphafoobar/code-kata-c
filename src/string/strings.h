@@ -6,6 +6,8 @@
 
 char *to_lower(char *s);
 
+char *sorted_lowercase_string(char *s);
+
 size_t latin1_hash_code(char *s);
 
 bool is_number(char *s);

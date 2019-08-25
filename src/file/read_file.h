@@ -2,8 +2,8 @@
 #define KATA_READ_FILE_H
 
 typedef struct strings_list {
-    int lines_count;
-    int max_lines;
+    size_t lines_count;
+    size_t max_lines;
     char **lines;
 } StringsList;
 
