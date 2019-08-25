@@ -56,11 +56,10 @@ static void test_array_of_length_4() {
 }
 
 int main() {
-    // Calculate the time taken by fun()
-    clock_t t_0 = clock();
     char result[26];
-    strftime(result, 26, "%Y-%m-%d %H:%M:%S", now());
+    initialize_now_string(result);
 
+    clock_t t_0 = clock();
     const struct CMUnitTest tests[] = {
             cmocka_unit_test(test_empty_array),
             cmocka_unit_test(test_found_in_array_of_length_1),
@@ -70,9 +69,9 @@ int main() {
     };
 
     const int test_outcome = cmocka_run_group_tests(tests, NULL, NULL);
-
     double time_taken = ((double) clock() - t_0) / CLOCKS_PER_SEC; // in seconds
     printf("[%s] (test) Finished%s In %f seconds\n", result, test_outcome == 0 ? "." : " with errors!", time_taken);
 
     return test_outcome;
 }
+
