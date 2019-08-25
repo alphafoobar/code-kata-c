@@ -3,9 +3,9 @@
 
 // Build representation of now for logging.
 struct tm *now() {
-    time_t *timer = malloc(sizeof(time_t *));
-    time(timer);
-    return localtime(timer);
+    time_t timer;
+    time(&timer);
+    return localtime(&timer);
 }
 
 // Store string representation of time in a given char array.
