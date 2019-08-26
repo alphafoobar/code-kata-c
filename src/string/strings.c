@@ -11,7 +11,7 @@ size_t new_string_length(const char *s, size_t length);
  * Latin1 hash algorithm from JDK.
  */
 char *to_lower(char *s) {
-    char *r = malloc(strlen(s) * sizeof(char));
+    char *r = malloc((strlen(s) + 1) * sizeof(char));
     for (size_t i = 0; s[i]; i++) {
         r[i] = (char) tolower(s[i]);
     }
@@ -33,8 +33,20 @@ char *sorted_lowercase_string(char *s) {
         }
     }
     lower[j] = '\0';
-    qsort(lower, strlen(lower), sizeof(char), ascending);
+    qsort(lower, j, sizeof(char), ascending);
     return lower;
+}
+
+char *trim(char *s) {
+    const size_t length = strlen(s);
+
+    for (size_t i = 0; i < length; i++) {
+        if (s[i] == '\n' || isblank(s[i])) {
+            s[i] = '\0';
+            return s;
+        }
+    }
+    return s;
 }
 
 bool is_number(char *s) {

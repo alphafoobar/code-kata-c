@@ -10,34 +10,40 @@
 #include <search.h>
 
 static void test_anagrams() {
-    StringsList *actual = anagrams(strdup("hello"));
+    StringsList *const actual = anagrams(strdup("test-word-that-isn't-there"));
     assert_null(actual);
     free_strings_list(actual);
+    hdestroy();
 }
 
 static void test_anagrams_load_word() {
-    load_anagrams("resources/wordlist.txt");
+    StringsList *const actual = anagrams(strdup("word"));
 
-    assert_non_null(anagrams("word"));
+    assert_non_null(actual);
+    assert_int_equal(actual->lines_count, 3);
+    free_strings_list(actual);
+    hdestroy();
 }
 
 static void test_anagrams_load_paste() {
-    load_anagrams("resources/wordlist.txt");
+    StringsList *const actual = anagrams(strdup("paste"));
 
-    StringsList *const list = anagrams("paste");
+    assert_non_null(actual);
     // Should only be 10 versions of paste.
-//    assert_int_equal(list->lines_count, 10);
-    assert_non_null(list);
+    assert_int_equal(actual->lines_count, 12);
+    free_strings_list(actual);
 }
 
 int main() {
-    // Create dictionary in advance.
     hcreate(200000);
+    load_anagrams("resources/wordlist.txt");
 
     const struct CMUnitTest tests[] = {
             cmocka_unit_test(test_anagrams),
             cmocka_unit_test(test_anagrams_load_word),
             cmocka_unit_test(test_anagrams_load_paste)
     };
-    return cmocka_run_group_tests(tests, NULL, NULL);
+    const int result = cmocka_run_group_tests(tests, NULL, NULL);
+    hdestroy();
+    return result;
 }

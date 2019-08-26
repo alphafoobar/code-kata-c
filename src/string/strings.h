@@ -16,4 +16,6 @@ int an_int(char *s);
 
 char *strip_trailing_asterisk(const char *s);
 
+char *trim(char *s);
+
 #endif //CODE_KATA_C_STRINGS_H
