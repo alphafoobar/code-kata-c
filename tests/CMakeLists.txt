@@ -19,14 +19,14 @@ add_cmocka_test(test_read_file
 
 add_cmocka_test(test_tokenizer
         SOURCES
-        ${PROJECT_SOURCE_DIR}/tests/strings/tokenizer_test.c
+        ${PROJECT_SOURCE_DIR}/tests/string/tokenizer_test.c
         ${PROJECT_SOURCE_DIR}/src/string/tokenizer.c
         LINK_LIBRARIES cmocka_lib
         LINK_OPTIONS --coverage)
 
 add_cmocka_test(test_strings
         SOURCES
-        ${PROJECT_SOURCE_DIR}/tests/strings/strings_test.c
+        ${PROJECT_SOURCE_DIR}/tests/string/strings_test.c
         ${PROJECT_SOURCE_DIR}/src/string/strings.c
         LINK_LIBRARIES cmocka_lib m
         LINK_OPTIONS --coverage)
