@@ -22,18 +22,16 @@ void load_anagrams(const char *filename) {
 
     for (size_t i = 0; i < file_data->lines_count; i++) {
         char *word = trim(file_data->lines[i]);
-
         char *normalized = sorted_lowercase_string(word);
-        ENTRY find;
-        find.key = normalized;
-        ENTRY *entry = hsearch(find, FIND);
-        if (entry == NULL) {
-            entry = (ENTRY *) malloc(sizeof(ENTRY));
-            entry->key = normalized;
-            entry->data = new_strings_list();
-            entry = hsearch(*entry, ENTER);
+
+        ENTRY entry;
+        entry.key = normalized;
+        ENTRY *pEntry = hsearch(entry, FIND);
+        if (pEntry == NULL) {
+            entry.data = new_strings_list();
+            pEntry = hsearch(entry, ENTER);
         }
-        plus_string_if_unique((StringsList *) (entry->data), word);
+        plus_string_if_unique((StringsList *) (pEntry->data), word);
     }
 }
 

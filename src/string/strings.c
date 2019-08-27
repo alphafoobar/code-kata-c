@@ -8,7 +8,8 @@ char *modify_string(char *s, size_t new_length);
 size_t new_string_length(const char *s, size_t length);
 
 /*
- * Latin1 hash algorithm from JDK.
+ * Latin1 hash algorithm from JDK. New string created, called must manage memory for both input
+ * and output strings.
  */
 char *to_lower(char *s) {
     char *r = malloc((strlen(s) + 1) * sizeof(char));
