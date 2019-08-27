@@ -13,5 +13,4 @@ struct tm *now() {
 void initialize_now_string(char *result) {
     struct tm *const time_now = now();
     strftime(result, 26, "%Y-%m-%d %H:%M:%S", time_now);
-    free(time_now);
 }
