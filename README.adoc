@@ -5,15 +5,16 @@ https://codecov.io/gh/alphafoobar/code-kata-c[image:https://codecov.io/gh/alphaf
 
 * Built using JetBrains CLion
 * Target C version is C11
-* Build using Makefile, cmake, make and ctest
+* Build using CMake.
 * Tests implemented using https://cmocka.org/[CMocka]
 
 == How-to
 
 1. `mkdir build`
 2. `cd build`
-3. `cmake ..`
-4. `ctest -V`
+3. `cmake -D ENABLE_COVERAGE=TRUE ..` * Initialise build with coverage enabled.
+4. `make`
+5. `ctest -V -T memcheck` * Run tests in verbose mode with Valgrind memcheck.
 
 Or simply run the tests required in CLion by clicking on the green arror in the test file of interest.
 
