@@ -4,18 +4,14 @@
 #include "list.h"
 
 void plus_string(StringsList *list, char *string) {
+    if (contains_string(list, string)) {
+        printf("List already contains string='%s'\n", string);
+        return;
+    }
     list->lines[list->lines_count] = string;
     if (++list->lines_count >= list->max_lines) {
         resize_list(list, list->max_lines * 2);
     }
-}
-
-void plus_string_if_unique(StringsList *list, char *string) {
-    if (contains_string(list, string)) {
-        printf("List already contains string=%s\n", string);
-        return;
-    }
-    plus_string(list, string);
 }
 
 bool contains_string(StringsList *list, char *string) {

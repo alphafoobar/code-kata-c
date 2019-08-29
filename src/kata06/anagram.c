@@ -31,7 +31,7 @@ void load_anagrams(const char *filename) {
             entry.data = new_strings_list();
             pEntry = hsearch(entry, ENTER);
         }
-        plus_string_if_unique((StringsList *) (pEntry->data), word);
+        plus_string((StringsList *) (pEntry->data), word);
     }
 }
 

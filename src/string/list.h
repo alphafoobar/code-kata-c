@@ -22,8 +22,6 @@ bool contains_string(StringsList *list, char *string);
 
 void plus_string(StringsList *list, char *string);
 
-void plus_string_if_unique(StringsList *pList, char *word);
-
 void free_strings_list(StringsList *list);
 
 #endif //CODE_KATA_C_LIST_H
