@@ -10,13 +10,13 @@
 #include <search.h>
 
 static void test_anagrams() {
-    StringsList *const actual = anagrams(strdup("test-word-that-isn't-there"));
+    StringsList *const actual = anagrams_dofree(strdup("test-word-that-isn't-there"));
     assert_null(actual);
     free_strings_list(actual);
 }
 
 static void test_anagrams_load_word() {
-    StringsList *const actual = anagrams(strdup("word"));
+    StringsList *const actual = anagrams_dofree(strdup("word"));
 
     assert_non_null(actual);
     assert_int_equal(actual->lines_count, 3);
@@ -24,7 +24,7 @@ static void test_anagrams_load_word() {
 }
 
 static void test_anagrams_load_paste() {
-    StringsList *const actual = anagrams(strdup("paste"));
+    StringsList *const actual = anagrams_dofree(strdup("paste"));
 
     assert_non_null(actual);
     // Should only be 12 versions of paste.

@@ -14,7 +14,7 @@ typedef struct strings_list {
     char **lines;
 } StringsList;
 
-StringsList *new_strings_list();
+StringsList *new_strings_list_dofree();
 
 void resize_list(StringsList *list, size_t new_max_size);
 

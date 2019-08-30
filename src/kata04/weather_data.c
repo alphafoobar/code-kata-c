@@ -26,9 +26,9 @@ WeatherData *new_weather_data_from_string(char *data) {
         return NULL;
     }
 
-    int day = an_int(tokens[0]);
-    int max = an_int(tokens[1]);
-    int min = an_int(tokens[2]);
+    int day = to_long(tokens[0]);
+    int max = to_long(tokens[1]);
+    int min = to_long(tokens[2]);
 
     free_array_of_strings(tokens, number_of_tokens);
 

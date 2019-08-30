@@ -3,7 +3,7 @@
 
 #include <stdbool.h>
 
-#define BLOOM_FILTER_SIZE 552523
+#define BLOOM_FILTER_SIZE 652523
 
 typedef struct bloom_filter {
     bool dictionary[BLOOM_FILTER_SIZE];
@@ -15,6 +15,8 @@ typedef struct bloom_filter {
 
 void bloom_filter_init(BloomFilter *it);
 
-BloomFilter bloom_filter_init_from_file(char *filename);
+BloomFilter *bloom_filter_init_from_file_dofree(char *filename);
+
+void free_bloom_filter(BloomFilter *it);
 
 #endif //C_BLOOM_FILTER_H

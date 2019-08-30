@@ -23,21 +23,24 @@ static void test_one() {
 }
 
 static void test_dictionary() {
-    BloomFilter it = bloom_filter_init_from_file("resources/wordlist.txt");
+    BloomFilter *it = bloom_filter_init_from_file_dofree("resources/wordlist.txt");
 
-    assert_true(it.test(&it, "Hello"));
+    assert_true(it->test(it, "hello"));
+    free_bloom_filter(it);
 }
 
 static void test_missing_word() {
-    BloomFilter it = bloom_filter_init_from_file("resources/wordlist.txt");
+    BloomFilter *it = bloom_filter_init_from_file_dofree("resources/wordlist.txt");
 
-    assert_false(it.test(&it, "F@@@@"));
+    assert_false(it->test(it, "F@@@@"));
+    free_bloom_filter(it);
 }
 
 static void test_tricky_word() {
-    BloomFilter it = bloom_filter_init_from_file("resources/wordlist.txt");
+    BloomFilter *it = bloom_filter_init_from_file_dofree("resources/wordlist.txt");
 
-    assert_false(it.test(&it, "beefburger's'"));
+    assert_false(it->test(it, "!test not found!"));
+    free_bloom_filter(it);
 }
 
 int main() {

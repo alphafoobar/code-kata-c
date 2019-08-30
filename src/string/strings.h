@@ -4,17 +4,17 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-char *to_lower(char *s);
+char *to_lower_dofree(const char *s);
 
-char *sorted_lowercase_string(char *s);
+char *sorted_lowercase_string_dofree(char *s);
 
-size_t latin1_hash_code(char *s);
+size_t latin1_hash_code(const char *s);
 
-bool is_number(char *s);
+bool is_number(const char *s);
 
-int an_int(char *s);
+long to_long(const char *s);
 
-char *strip_trailing_asterisk(const char *s);
+char *strip_trailing_asterisk_dofree(const char *s);
 
 char *trim(char *s);
 

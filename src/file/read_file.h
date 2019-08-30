@@ -5,7 +5,7 @@
 
 #include "../string/list.h"
 
-StringsList *to_data(const char *filename);
+StringsList *to_data_dofree(const char *filename);
 
 void read_file_into_list(FILE *file, StringsList *list);
 

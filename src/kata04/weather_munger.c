@@ -5,7 +5,7 @@
 
 WeatherMunger *read_weather_file(const char *filename) {
     int count = 0;
-    StringsList *file_data = to_data(filename);
+    StringsList *file_data = to_data_dofree(filename);
 
     WeatherMunger *munger = (WeatherMunger *) malloc(sizeof(WeatherMunger));
     WeatherData **data = (WeatherData **) malloc(file_data->lines_count * sizeof(WeatherData *));

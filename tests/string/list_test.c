@@ -9,7 +9,7 @@
 #include <cmocka.h>
 
 static void test_plus_string() {
-    StringsList *const data = new_strings_list();
+    StringsList *const data = new_strings_list_dofree();
 
     plus_string(data, strdup("test-1"));
     plus_string(data, strdup("test-2"));
@@ -18,7 +18,7 @@ static void test_plus_string() {
 }
 
 static void test_plus_string_already_exists() {
-    StringsList *const data = new_strings_list();
+    StringsList *const data = new_strings_list_dofree();
 
     plus_string(data, strdup("test"));
     plus_string(data, strdup("test"));

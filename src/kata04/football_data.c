@@ -28,8 +28,8 @@ FootballData *new_football_data_from_string(char *data) {
     }
 
     char *name = strdup(tokens[1]); // dup string to allow token to be managed.
-    int points_for = an_int(tokens[6]);
-    int points_against = an_int(tokens[8]);
+    int points_for = to_long(tokens[6]);
+    int points_against = to_long(tokens[8]);
 
     free_array_of_strings(tokens, number_of_tokens);
 

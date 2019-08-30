@@ -5,7 +5,7 @@
 
 FootballMunger *read_football_file(const char *filename) {
     int count = 0;
-    StringsList *file_data = to_data(filename);
+    StringsList *file_data = to_data_dofree(filename);
 
     FootballMunger *munger = (FootballMunger *) malloc(sizeof(FootballMunger));
     FootballData **data = (FootballData **) malloc(file_data->lines_count * sizeof(FootballData *));
