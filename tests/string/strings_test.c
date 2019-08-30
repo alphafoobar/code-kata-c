@@ -18,6 +18,11 @@ static void test_make_hello_lower() {
     free(actual);
 }
 
+static void test_trim() {
+    char *actual = trim("HI.UPPERCASE");
+    assert_string_equal("HI.UPPERCASE", actual);
+}
+
 static void test_make_pyramid_lower() {
     char *actual = to_lower_dofree("thisIsit");
     assert_string_equal("thisisit", actual);
@@ -25,17 +30,17 @@ static void test_make_pyramid_lower() {
 }
 
 static void test_an_int_is_87() {
-    int result = to_long("87");
+    long result = to_long("87");
     assert_int_equal(87, result);
 }
 
 static void test_a_not_int_is_0() {
-    int result = to_long("87.");
+    long result = to_long("87.");
     assert_int_equal(0, result);
 }
 
 static void test_an_int_with_an_asterix_is_87() {
-    int result = to_long("87*");
+    long result = to_long("87*");
     assert_int_equal(87, result);
 }
 
@@ -47,6 +52,7 @@ int main() {
             cmocka_unit_test(test_make_hello_lower),
             cmocka_unit_test(test_make_pyramid_lower),
             cmocka_unit_test(test_hello_hash_code),
+            cmocka_unit_test(test_trim)
     };
     return cmocka_run_group_tests(tests, NULL, NULL);
 }
